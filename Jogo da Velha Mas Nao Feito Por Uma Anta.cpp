@@ -70,24 +70,14 @@ bool Vitoria(int i, string p[], string j_){
 }
 
 string JgdaJ_(int jgda[], int i, string p[], string j_, string T){ 
-    if(jgda[i] == 1)
-        p[0] = "_" + j_ + "_";
-    else if(jgda[i] == 2)
-        p[1] = "_" + j_ + "_";
-    else if(jgda[i] == 3)
-        p[2] = "_" + j_ + "_";
-    else if(jgda[i] == 4)
-        p[3] = "_" + j_ + "_";
-    else if(jgda[i] == 5)
-        p[4] = "_" + j_ + "_";
-    else if(jgda[i] == 6)
-        p[5] = "_" + j_ + "_";
-    else if(jgda[i] == 7)
-        p[6] = " " + j_ + " ";
-    else if(jgda[i] == 8)
-        p[7] = " " + j_ + " ";
-    else
-        p[8] = " " + j_ + " ";
+    for(int j = 1; j < 7; j++){
+        if(jgda[i] == j)
+            p[j-1] = "_" + j_ + "_";
+    }
+    for(int j = 7; j < 10; j++){
+        if(jgda[i] == j)
+            p[j-1] = " " + j_ + " ";
+    }
 
     string l1 = p[0] + '|' + p[1] + '|' + p[2];
     string l2 = p[3] + '|' + p[4] + '|' + p[5];
