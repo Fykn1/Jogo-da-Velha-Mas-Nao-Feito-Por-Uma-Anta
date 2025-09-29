@@ -33,38 +33,16 @@ bool Vitoria(int i, string p[], string j_){
     string mJ2 = "Jogador 2 venceu.";
     bool Venceu = 0;
         for(int x = 0; x < 4; x += 3){
-            if(p[x] == "_" + j_ + "_" && p[x+1] == p[x] && p[x+2] == p[x]){
-                Venceu = 1;
-                if(i % 2 == 0)
-                    cout << mJ1;
-                else
-                    cout << mJ2;
+            for(int y = 0; y < 4; y++){
+               for(int z = 1; z < 4; z += 2){
+            		if((p[x] == "_" + j_ + "_" && p[x+1] == p[x] && p[x+2] == p[x]) ||
+                        (p[y] == "_" + j_ + "_" && p[y+3] == p[y] && p[y+6] == " " + j_ + " ") ||
+                        (p[z-1] == "_" + j_ + "_" && p[4] == p[z-1] && p[9-z] == " " + j_ + " ") ||
+                        (p[6] == " " + j_ + " " && p[7] == p[6] && p[8] == p[6])){
+                        Venceu = 1;
+                    }
+               }
             }
-        }
-        for(int y = 0; y < 4; y++){
-            if(p[y] == "_" + j_ + "_" && p[y+3] == p[y] && p[y+6] == " " + j_ + " "){
-                Venceu = 1;
-                if(i % 2 == 0)
-                    cout << mJ1;
-                else
-                    cout << mJ2;
-            }
-        }
-        for(int z = 1; z < 4; z += 2){
-            if(p[z-1] == "_" + j_ + "_" && p[4] == p[z-1] && p[9-z] == " " + j_ + " "){
-                Venceu = 1;
-                if(i % 2 == 0)
-                    cout << mJ1;
-                else
-                    cout << mJ2;
-            }
-        }
-        if(p[6] == " " + j_ + " " && p[7] == p[6] && p[8] == p[6]){
-            Venceu = 1;
-            if(i % 2 == 0)
-                cout << mJ1;
-            else
-                cout << mJ2;
         }
     return Venceu;
 }
@@ -126,14 +104,24 @@ int main(){
         if(i % 2 == 0){
             EscolheJgda(jgda, i);
             cout << JgdaJ_(jgda, i, p, j1, T) << endl << endl;
-            if(Vitoria(i, p, j1) == 1)
-                return 0;
+            if(Vitoria(i, p, j1) == 1){
+                if(i % 2 == 0)
+                    cout << "Jogador 1 venceu.";
+                else
+                    cout << "Jogador 2 venceu.";
+            return 0;
+            }
         }
         else{
             EscolheJgda(jgda, i);
             cout << JgdaJ_(jgda, i, p, j2, T) << endl << endl;
-            if(Vitoria(i, p, j2) == 1)
+            if(Vitoria(i, p, j2) == 1){
+                if(i % 2 == 0)
+                    cout << "Jogador 1 venceu.";
+                else
+                    cout << "Jogador 2 venceu.";
                 return 0;
+            }
         }
     }
 }
