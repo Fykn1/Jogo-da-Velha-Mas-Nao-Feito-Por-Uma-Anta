@@ -105,21 +105,15 @@ int main(){
             EscolheJgda(jgda, i);
             cout << JgdaJ_(jgda, i, p, j1, T) << endl << endl;
             if(Vitoria(i, p, j1) == 1){
-                if(i % 2 == 0)
-                    cout << "Jogador 1 venceu.";
-                else
-                    cout << "Jogador 2 venceu.";
-            return 0;
+                cout << "Jogador 1 venceu.";
+            	return 0;
             }
         }
         else{
             EscolheJgda(jgda, i);
             cout << JgdaJ_(jgda, i, p, j2, T) << endl << endl;
             if(Vitoria(i, p, j2) == 1){
-                if(i % 2 == 0)
-                    cout << "Jogador 1 venceu.";
-                else
-                    cout << "Jogador 2 venceu.";
+                cout << "Jogador 2 venceu.";
                 return 0;
             }
         }
