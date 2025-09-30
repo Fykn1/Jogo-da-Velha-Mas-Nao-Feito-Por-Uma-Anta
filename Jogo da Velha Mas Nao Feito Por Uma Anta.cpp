@@ -29,19 +29,17 @@ void EscolheJgda(int jgda[], int i){
 }
 
 bool Vitoria(int i, string p[], string j_){
-    string mJ1 = "Jogador 1 venceu.";
-    string mJ2 = "Jogador 2 venceu.";
     bool Venceu = 0;
         for(int x = 0; x < 4; x += 3){
             for(int y = 0; y < 4; y++){
-               for(int z = 1; z < 4; z += 2){
-            		if((p[x] == "_" + j_ + "_" && p[x+1] == p[x] && p[x+2] == p[x]) ||
-                        (p[y] == "_" + j_ + "_" && p[y+3] == p[y] && p[y+6] == " " + j_ + " ") ||
-                        (p[z-1] == "_" + j_ + "_" && p[4] == p[z-1] && p[9-z] == " " + j_ + " ") ||
-                        (p[6] == " " + j_ + " " && p[7] == p[6] && p[8] == p[6])){
+            	for(int z = 0; z < 4; z += 2){
+            		if((p[x] == "_" + j_ + "_" && p[x+1] == p[x] && p[x+2] == p[x]) || //Horizontal 1 e 2
+						(p[6] == " " + j_ + " " && p[7] == p[6] && p[8] == p[6]) || //Horizontal 3
+                        (p[y] == "_" + j_ + "_" && p[y+3] == p[y] && p[y+6] == " " + j_ + " ") || //Vertical
+                        (p[z] == "_" + j_ + "_" && p[4] == p[z] && p[8-z] == " " + j_ + " ")){ //Diagonal
                         Venceu = 1;
                     }
-               }
+               	}
             }
         }
     return Venceu;
@@ -76,7 +74,7 @@ int main(){
 	cout << "Jogo da Velha" << endl;
 	cout << T << endl << endl;
 
-	//Jogadas e jogadores
+	//Jogadores
     int jgda[9];
     string mJ1 = "Jogador 1: ";
 	string mJ2 = "Jogador 2: ";
