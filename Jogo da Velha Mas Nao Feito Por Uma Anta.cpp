@@ -75,7 +75,6 @@ int main(){
 	cout << T << endl << endl;
 
 	//Jogadores
-    int jgda[9];
     string mJ1 = "Jogador 1: ";
 	string mJ2 = "Jogador 2: ";
     string j1, j2;
@@ -98,6 +97,7 @@ int main(){
     cout << mJ2 << j2 << endl << endl;
 	
 	//Jogadas
+	int jgda[9];
     for(int i = 0; i < 9; i++){
         if(i % 2 == 0){
             EscolheJgda(jgda, i);
